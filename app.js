@@ -84,7 +84,7 @@
     svg.querySelectorAll(".wire,.node,.pulse").forEach(n => n.remove());
     svg.insertAdjacentHTML("beforeend", L.wires.map((w, i) => `<path class="wire c${i}" id="w${i}" d="${curve(w)}"/>`).join("") +
       L.pos.map((p, i) => `<g class="node c${i}" id="n${i}" transform="translate(${p[0]} ${p[1]})">
-        <g class="nb"><rect width="${L.W}" height="${L.H}" rx="14"/><circle class="chip" cx="28" cy="${L.H / 2}" r="17"/>
+        <g class="nb"><rect width="${L.W}" height="${L.H}" rx="10"/><circle class="chip" cx="28" cy="${L.H / 2}" r="17"/>
         <g class="ic" transform="translate(17.5 ${L.H / 2 - 10.5}) scale(.88)"></g>
         <text class="t" x="54" y="${L.H / 2 - 3}"></text><text class="s" x="54" y="${L.H / 2 + 15}"></text>
         ${L.ports[i].map(([x, y]) => `<circle class="port" cx="${x}" cy="${y}" r="5"/>`).join("")}</g></g>`).join("") +
@@ -213,10 +213,11 @@
   const still = (v, big) => (big ? v.poster : v.thumb) || v.thumb || `https://drive.google.com/thumbnail?id=${encodeURIComponent(v.id)}&sz=w${big ? 1280 : 400}`;
   const driveUrl = (v, mode) => `https://drive.google.com/file/d/${encodeURIComponent(v.id)}/${mode}`;
   const setText = (id, text) => { const n = $(id); n.textContent = text || ""; n.hidden = !text; };
-  let current = 0, loadTimer;
+  let current = 0, loadTimer, touched = false;
+  let VIDS = [];   // the list currently shown (shuffled on every visit)
   function poster(v) {
-    screen.innerHTML = `<button class="poster" type="button" aria-label="Play ${esc(v.title)}${v.duration ? `, ${esc(v.duration)}` : ""}"><img src="${esc(still(v, true))}" alt="" onerror="this.remove()"><span class="big-play">${playIcon}</span>${v.duration ? `<span class="badge-dur">${esc(v.duration)}</span>` : ""}</button>`;
-    screen.querySelector(".poster").onclick = () => start(v);
+    screen.innerHTML = `<button class="poster" type="button" aria-label="Play ${esc(v.title)}${v.duration ? `, ${esc(v.duration)}` : ""}"><img src="${esc(still(v, true))}" alt="" onerror="this.onerror=null;this.src='${esc(`https://drive.google.com/thumbnail?id=${encodeURIComponent(v.id)}&sz=w1280`)}'"><span class="big-play">${playIcon}</span>${v.duration ? `<span class="badge-dur">${esc(v.duration)}</span>` : ""}</button>`;
+    screen.querySelector(".poster").onclick = () => { touched = true; start(v); };
   }
   function start(v) {
     clearTimeout(loadTimer);
@@ -231,7 +232,7 @@
     loadTimer = setTimeout(() => { if (l.isConnected) l.innerHTML = `<span>Still loading. Your connection may be slow, or Drive may be blocked on this network.</span><a href="${driveUrl(v, "view")}" target="_blank" rel="noopener">Watch on Google Drive ↗</a>`; }, 12000);
   }
   function select(i, autoplay) {
-    const v = S.videos[i]; current = i;
+    const v = VIDS[i]; current = i;
     $("#now-title").textContent = v.title; $("#now-kind").textContent = v.kind || "AI video";
     $("#now-dur").textContent = v.duration ? `· ${v.duration}` : "";
     setText("#now-work", v.work); setText("#now-brief", v.brief); setText("#now-made", v.made ? `My part: ${v.made}` : "");
@@ -239,18 +240,49 @@
     reel.querySelectorAll("button").forEach((b, k) => b.setAttribute("aria-current", k === i ? "true" : "false"));
     poster(v); if (autoplay) start(v);
   }
-  if (S.videos.length) {
-    reel.innerHTML = S.videos.map((v, i) => `<li><button type="button" data-i="${i}" aria-label="${esc(v.title)}, ${esc(v.kind || "AI video")}${v.duration ? `, ${esc(v.duration)}` : ""}">
-      <span class="mini"><img src="${esc(still(v, false))}" alt="" loading="lazy" onerror="this.remove()">${v.duration ? `<span class="mini-dur">${esc(v.duration)}</span>` : ""}</span>
+  const shuffle = arr => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  // Turn a Drive file name into a readable title, e.g. "Lekki_Bistro_Advert_FINAL_V3.mp4" -> "Lekki Bistro Advert"
+  const niceTitle = name => {
+    const t = String(name).replace(/\.[a-z0-9]{2,4}$/i, "").replace(/\(\d+\)/g, "").replace(/[_-]+/g, " ")
+      .replace(/\b(final|clean|enhanced|copy|mvp|v\d+)\b/gi, "").replace(/\s{2,}/g, " ").trim();
+    return t ? t.charAt(0).toUpperCase() + t.slice(1) : "AI video";
+  };
+  function render(list, keepId) {
+    VIDS = list;
+    reel.innerHTML = VIDS.map((v, i) => `<li><button type="button" data-i="${i}" aria-label="${esc(v.title)}, ${esc(v.kind || "AI video")}${v.duration ? `, ${esc(v.duration)}` : ""}">
+      <span class="mini"><img src="${esc(still(v, false))}" alt="" loading="lazy" onerror="this.onerror=null;this.src='${esc(`https://drive.google.com/thumbnail?id=${encodeURIComponent(v.id)}&sz=w400`)}'">${v.duration ? `<span class="mini-dur">${esc(v.duration)}</span>` : ""}</span>
       <span class="info"><b>${esc(v.title)}</b><span>${esc(v.kind || "AI video")}${v.work ? ` · ${esc(v.work)}` : ""}</span></span></button></li>`).join("");
     reel.querySelectorAll("button").forEach(b => b.onclick = () => {
-      select(Number(b.dataset.i), false);
+      touched = true; select(Number(b.dataset.i), false);
       if (matchMedia("(max-width: 860px)").matches) screen.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
     });
-    select(0, false);
-  } else {
-    $("#videos .theatre").innerHTML = `<p class="none">Add videos to <code>videos</code> in data.js to fill this player.</p>`;
+    const keep = keepId ? VIDS.findIndex(v => v.id === keepId) : -1;
+    if (keep >= 0) { current = keep; reel.querySelectorAll("button").forEach((b, k) => b.setAttribute("aria-current", k === keep ? "true" : "false")); }
+    else if (VIDS.length) select(0, false);
   }
+  // Videos: shown in a new random order on every visit. The list itself comes from your Drive folder
+  // (videos.json, refreshed automatically by a GitHub Action), so newly added videos appear without editing this site.
+  const curated = Object.fromEntries((S.videos || []).map(v => [v.id, v]));
+  const hidden = new Set((S.videoSource && S.videoSource.exclude) || []);
+  if (S.videos && S.videos.length) render(shuffle(S.videos.filter(v => !hidden.has(v.id))));
+  (async () => {
+    const feeds = [(S.videoSource || {}).feed, "videos.json"].filter(Boolean);
+    for (const url of feeds) {
+      try {
+        const r = await fetch(url + (url.includes("?") ? "&" : "?") + "t=" + Date.now(), { cache: "no-store" });
+        if (!r.ok) continue;
+        const data = await r.json();
+        const files = (data.videos || []).filter(f => f && f.id && !hidden.has(f.id));
+        if (!files.length) continue;
+        const list = files.map(f => curated[f.id] || { id: f.id, title: niceTitle(f.name), kind: "AI video" });
+        const playing = !!screen.querySelector("iframe");
+        const keepId = touched || playing ? (VIDS[current] || {}).id : null;
+        render(shuffle(list), keepId);
+        return;
+      } catch (e) { /* offline, blocked or not published yet: keep the built-in list */ }
+    }
+    if (!VIDS.length) $("#videos .theatre").innerHTML = `<p class="none">Add videos to your Drive folder and they'll appear here.</p>`;
+  })();
 
   /* ---------- robotics & training ---------- */
   $("#robo-grid").innerHTML = S.robotics.map(r => `<article class="bot reveal"><span class="k">${esc(r.kind)}</span>

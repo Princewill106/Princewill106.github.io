@@ -22,9 +22,18 @@ Everything visitors read is in **`data.js`**. Open it on GitHub, click the penci
 - **Booking link:** set `contact.booking` to a Calendly or Cal.com link. Until then, the call buttons open WhatsApp.
 - **Testimonials:** add entries to `testimonials`. The section appears once there's at least one. Get permission first.
 
-## Videos from Google Drive
+## Videos from Google Drive (automatic)
 
-Videos play in the on-page player straight from Drive. Each file must be shared as **Anyone with the link: Viewer**. The `id` is the part between `/d/` and `/view` in the share link. Under the player there is always a "Watch it on Google Drive" link in case a visitor's network blocks the embedded player.
+The video section reads your **AI Video Portfolio** Drive folder by itself:
+
+- `.github/workflows/update-videos.yml` runs every 30 minutes. It reads the folder and updates `videos.json`. It only commits when something changed.
+- New videos you add to the folder appear on the site within about 30–40 minutes, titled from the file name.
+- The order is shuffled every time someone opens the page.
+- To give a video a better title or details, add it to `videos` in `data.js` (match the `id`).
+- To hide a video, add its ID to `videoSource.exclude` in `data.js`.
+- To update right away: **Actions → Update videos from Google Drive → Run workflow**.
+
+The folder must stay shared as **Anyone with the link: Viewer**. GitHub pauses scheduled workflows in repositories with no activity for 60 days; if that happens, open the Actions tab and click **Enable workflow**.
 
 ## Sharing preview
 

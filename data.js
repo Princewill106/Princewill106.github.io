@@ -110,7 +110,21 @@ window.SITE = {
         (thumb is optional: without it the site uses Drive's own thumbnail)
      Or set driveFolder to the folder link to show the whole folder. */
   driveFolder: "https://drive.google.com/drive/folders/1jiOwE8-WoNM-DDkb4nwVYb6HH5aTkkBA",
-  /* Fill these in for each video when you can (they show under the player):
+  /* Live video list. A GitHub Action (.github/workflows/update-videos.yml) reads your Drive folder every 30 minutes
+     and writes videos.json, so new videos you add to the folder appear on the site by themselves.
+     The order is shuffled on every visit. To hide a video, add its ID to "exclude". */
+  videoSource: {
+    feed: "https://raw.githubusercontent.com/Princewill106/Princewill106.github.io/main/videos.json",
+    exclude: [
+      "1mi9ZpX2MP7bKAJxDm9Lc3jR6SucrWLbZ",   // mybetcode
+      "11Em1t-yi5QhnDAvfiKGqnEmBLXkmuJS_",   // mybetcode2
+      "1cTPS8pplvoRf-CouPMjA6Ia_BdtkTzVR",   // Oraclesignalz 4
+      "1cH-CtjoPbMCy0yY_KGQ00QUKDtxZcjvY",   // Oraclesignalz
+      "1_v23l1AgTyou65Bh63G1n8jSUOgv0kQR"    // Daveman Tech(1), a duplicate
+    ]
+  },
+  /* Titles and details for videos you want to describe. Any video in the Drive folder that isn't listed here
+     still appears, titled from its file name. Fill these in when you can (they show under the player):
        work:  "Client work" or "Personal sample"
        brief: one line on the audience and purpose, e.g. "30-second Instagram ad for a Lagos restaurant launch"
        made:  what you did, e.g. "Script, AI visuals, voiceover and edit" */
