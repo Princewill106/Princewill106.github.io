@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Offers & Training | Ogbu Princewill</title><meta name="description" content="Book AI automation and AI video 1-on-1 sessions, AI4Educators school training, AI4Students & Graduates, freelancing and robotics courses, and AI books by Ogbu Princewill.">
+<link rel="canonical" href="https://princewill106.github.io/offers/">
+<meta property="og:type" content="website"><meta property="og:url" content="https://princewill106.github.io/offers/">
+<meta property="og:title" content="Offers & Training | Ogbu Princewill"><meta property="og:description" content="Book AI automation and AI video 1-on-1 sessions, AI4Educators school training, AI4Students & Graduates, freelancing and robotics courses, and AI books by Ogbu Princewill.">
+<meta property="og:image" content="https://princewill106.github.io/assets/og-image.jpg"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png"><link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<style>
+.o-hero { padding-block: clamp(44px, 6vw, 80px) clamp(28px, 4vw, 44px); }
+.o-hero h1 { font-family: var(--display); font-size: clamp(2.3rem, 4.6vw, 3.8rem); line-height: 1.04; letter-spacing: -0.045em; font-weight: 600; margin: 22px 0 18px; max-width: 22ch; }
+.o-hero h1 em { color: var(--accent); }
+.o-hero p.lead { color: #4a4b53; font-size: 1.12rem; max-width: 56ch; line-height: 1.7; }
+.o-hero .cta { margin-top: 26px; }
+.filter { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 26px; }
+.offers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; padding-bottom: clamp(56px, 7vw, 96px); }
+.offer { background: #fff; border: 1px solid var(--rule); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 90px; transition: border-color .25s, box-shadow .35s var(--ease); }
+.offer:hover { border-color: #cfcfca; box-shadow: 0 22px 44px -34px rgba(13,13,18,.35); }
+.offer:target { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-tint); }
+.o-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.o-icon { width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; }
+.o-icon svg { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.blue .o-icon { background: var(--accent); } .green .o-icon { background: #0e8a62; } .coral .o-icon { background: #d9472a; }
+.o-tag { font-size: .76rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+.offer h3 { font: 600 1.35rem/1.2 var(--display); letter-spacing: -0.02em; }
+.o-line { color: var(--soft); font-size: .97rem; }
+.o-price { display: grid; gap: 2px; padding-top: 4px; }
+.o-price b { font: 600 1.6rem/1.1 var(--display); letter-spacing: -0.03em; }
+.o-price span { color: var(--faint); font-size: .88rem; }
+details { border-top: 1px solid var(--rule); padding-top: 10px; }
+summary { cursor: pointer; font-weight: 600; font-size: .92rem; color: #1b40c4; list-style: none; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: " +"; } details[open] summary::after { content: " –"; }
+.tiers { list-style: none; margin: 10px 0 8px; padding: 0; display: grid; gap: 6px; }
+.tiers li { display: flex; justify-content: space-between; gap: 12px; font-size: .9rem; color: var(--soft); border-bottom: 1px dashed var(--rule); padding-bottom: 6px; }
+.tiers b { color: var(--ink); white-space: nowrap; font-weight: 600; }
+.o-who { font-size: .88rem; color: var(--soft); }
+.o-cta { margin-top: auto; display: flex; flex-wrap: wrap; gap: 10px; padding-top: 6px; }
+.btn.wa { background: #128c4a; border-color: #128c4a; }
+.btn.wa:hover { background: #0e723c; border-color: #0e723c; }
+.btn.wa svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 1.9; stroke-linejoin: round; }
+.how { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin-bottom: clamp(56px, 7vw, 90px); }
+.how div { padding: 26px 24px 30px; border-left: 1px solid var(--rule); }
+.how div:first-child { border-left: 0; padding-left: 0; }
+.how b { display: block; font: 600 1.15rem var(--display); margin: 6px 0 6px; }
+.how span { color: var(--faint); font-weight: 600; font-size: .85rem; }
+.how p { color: var(--soft); font-size: .95rem; }
+.faq { max-width: 760px; padding-bottom: clamp(56px, 7vw, 96px); }
+.faq h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom: 18px; }
+.faq details { padding: 14px 0; border-top: 1px solid var(--rule); }
+.faq details:last-child { border-bottom: 1px solid var(--rule); }
+.faq summary { color: var(--ink); font-size: 1.02rem; }
+.faq details p { color: var(--soft); margin-top: 8px; }
+.nav .logo span { white-space: nowrap; }
+@media (max-width: 440px) { .nav-cta .btn.ghost { display: none; } }
+@media (max-width: 340px) { .nav .logo { font-size: .95rem; } .nav .logo .avatar { width: 34px; height: 34px; margin-right: 8px; } }
+@media (max-width: 1000px) { .offers { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 680px) { .offers, .how { grid-template-columns: minmax(0, 1fr); } .how div { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); } .how div:first-child { border-top: 0; } }
+</style>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav scrolled"><div class="wrap">
+  <a class="logo" href="../"><img class="avatar" src="data:image/jpeg;base64,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" alt="" width="40" height="40"><span>Ogbu Princewill</span></a>
+  <div class="nav-cta"><a class="btn ghost sm" href="../">Portfolio</a><a class="btn sm dark" href="https://wa.me/2349039404716?text=Hi%20Princewill%2C%20I%20saw%20your%20post%20and%20I%27d%20like%20to%20know%20more.%20%28Ref%3A%20GENERAL%29" target="_blank" rel="noopener">WhatsApp</a></div>
+</div></header>
+<main id="main" tabindex="-1">
+  <section class="o-hero"><div class="wrap">
+    <p class="kicker"><span class="badge">Trainings, sessions and books</span><span class="loc">Online and in Lagos</span></p>
+    <h1>Learn it. Build it. <em>Earn with it.</em></h1>
+    <p class="lead">Practical AI, automation, AI video and robotics training from Princewill, AI Automation Consultant & Robotics Engineer, who has trained 500+ students, teachers and professionals. Pick what fits you and message me on WhatsApp to book.</p>
+    <div class="cta"><a class="btn wa" href="https://wa.me/2349039404716?text=Hi%20Princewill%2C%20I%20saw%20your%20post%20and%20I%27d%20like%20to%20know%20more.%20%28Ref%3A%20GENERAL%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>Chat on WhatsApp</a><a class="btn ghost" href="#offers">See all offers</a></div>
+  </div></section>
+  <section style="padding-top:0" id="offers"><div class="wrap">
+    <div class="filter" role="group" aria-label="Filter offers">
+      <button class="chip" type="button" data-g="all" aria-pressed="true">All</button>
+      <button class="chip" type="button" data-g="sessions" aria-pressed="false">1-on-1 sessions</button>
+      <button class="chip" type="button" data-g="courses" aria-pressed="false">Courses</button>
+      <button class="chip" type="button" data-g="schools" aria-pressed="false">Schools & teams</button>
+      <button class="chip" type="button" data-g="community" aria-pressed="false">Community & books</button>
+    </div>
+    <div class="offers">
+<article class="offer green" id="community" data-group="community">
+  <div class="o-top"><span class="o-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 19c.8-3.6 3.4-5.4 6-5.4s5.2 1.8 6 5.4M15 14.2c2.6-.4 5 1.2 5.8 4.8"/></svg></span><span class="o-tag">Community</span></div>
+  <h3>AI Community</h3>
+  <p class="o-line">A WhatsApp community for people learning and earning with AI: tool drops, prompts, gigs and weekly Q&amp;A.</p>
+  <p class="o-price"><b>Free to join</b><span>Inner Circle: ₦5,000/month or ₦12,000 for 3 months</span></p>
+  <details><summary>See prices and options</summary><ul class="tiers"><li><span>Free community</span><b>Free</b></li><li><span>Inner Circle (weekly live Q&amp;A, templates, gig and job drops)</span><b>₦5,000/month</b></li><li><span>Inner Circle, 3 months</span><b>₦12,000</b></li></ul><p class="o-who"><b>Best for:</b> Anyone curious about AI, from beginners to builders</p></details>
+  <div class="o-cta"><a class="btn wa" href="https://wa.me/2349039404716?text=Hi%20Princewill%2C%20please%20add%20me%20to%20your%20AI%20Community.%20%28Ref%3A%20CIRCLE%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>Join the community</a></div>
+</article>
+<article class="offer blue" id="automation" data-group="sessions">
+  <div class="o-top"><span class="o-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M7.5 12c5 0 5-6 9-6M7.5 12c5 0 5 6 9 6"/></svg></span><span class="o-tag">Personal session</span></div>
+  <h3>AI Automation 1-on-1</h3>
+  <p class="o-line">A live 90-minute session where we build one real automation for your work or business, together.</p>
+  <p class="o-price"><b>₦30,000</b><span>per 90-minute session · 3 sessions for ₦75,000</span></p>
+  <details><summary>See prices and options</summary><ul class="tiers"><li><span>One 90-minute session</span><b>₦30,000</b></li><li><span>3-session pack (build and refine)</span><b>₦75,000</b></li><li><span>Done-for-you automation setup</span><b>from ₦150,000</b></li></ul><p class="o-who"><b>Best for:</b> Business owners, freelancers and professionals with a task they repeat every week</p></details>
+  <div class="o-cta"><a class="btn wa" href="https://wa.me/2349039404716?text=Hi%20Princewill%2C%20I%27d%20like%20to%20book%20an%20AI%20Automation%201-on-1%20session.%20%28Ref%3A%20AUTO%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>Book a session</a></div>
+</article>
+<article class="offer coral" id="video" data-group="sessions">
+  <div class="o-top"><span class="o-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9l5 3-5 3z"/></svg></span><span class="o-tag">Personal session</span></div>
+  <h3>AI Video Creation 1-on-1</h3>
+  <p class="o-line">Learn to make a scroll-stopping AI advert in one sitting: script, visuals, voice and edit. You leave with a finished video.</p>
+  <p class="o-price"><b>₦20,000</b><span>2-hour 1-on-1 session · done-for-you videos from ₦50,000</span></p>
+  <details><summary>See prices and options</summary><ul class="tiers"><li><span>2-hour 1-on-1 session</span><b>₦20,000</b></li><li><span>Bring a friend (2 people)</span><b>₦35,000</b></li><li><span>Done-for-you AI advert</span><b>from ₦50,000</b></li></ul><p class="o-who"><b>Best for:</b> Business owners, creators and social media managers</p></details>
+  <div class="o-cta"><a class="btn wa" href="https://wa.me/2349039404716?text=Hi%20Princewill%2C%20I%20want%20the%20AI%20Video%20Creation%201-on-1%20session%20%28%E2%82%A620%2C000%29.%20%28Ref%3A%20VIDEO%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>Book your video session</a></div>
+</article>
+<article class="offer blue" id="educators" data-group="schools">
+  <div class="o-top"><span class="o-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/></svg></span><span class="o-tag">For schools</span></div>
+  <h3>AI4Educators</h3>
+  <p class="o-line">Virtual training that shows your teachers how to use AI for lesson plans, marking, admin and parent communication, safely.</p>
+  <p class="o-price"><b>From ₦150,000</b><span>per school · virtual · up to 30 staff</span></p>
+  <details><summary>See prices and options</summary><ul class="tiers"><li><span>Half-day virtual session (3 hours, up to 30 staff)</span><b>₦150,000</b></li><li><span>Full-day virtual training (6 hours, up to 50 staff)</span><b>₦250,000</b></li><li><span>3-day AI-Enabled School programme</span><b>₦500,000</b></li><li><span>In-person in Lagos</span><b>+ ₦50,000 logistics</b></li></ul><p class="o-who"><b>Best for:</b> School owners, heads of school and teachers</p></details>
+  <div class="o-cta"><a class="btn wa" href="https://wa.me/2349039404716?text=Hi%20Princewill%2C%20I%27d%20like%20AI4Educators%20training%20for%20our%20school%20staff.%20%28Ref%3A%20EDU%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>Book training for your school</a></div>
+</article>
+<article class="offer green" id="students" data-group="courses">
+  <div class="o-top"><span class="o-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><path d="M8 9h8M8 13h5"/></svg></span><span class="o-tag">4-week cohort</span></div>
+  <h3>AI4Students &amp; Graduates</h3>
+  <p class="o-line">A practical 4-week course: AI for study, research, CVs and job hunting, plus your first automation projects.</p>
+  <p class="o-price"><b>₦25,000</b><span>4 weeks · 8 live classes · early bird ₦20,000</span></p>
+  <details><summary>See prices and options</summary><ul class="tiers"><li><span>4-week cohort (8 live weekend classes)</span><b>₦25,000</b></li><li><span>Early bird (first 20 seats)</span><b>₦20,000</b></li><li><span>Combo with Freelancing Launchpad</span><b>₦50,000</b></li></ul><p class="o-who"><b>Best for:</b> University students, NYSC members and recent graduates</p></details>
+  <div class="o-cta"><a class="btn wa" href="https://wa.me/2349039404716?text=Hi%20Princewill%2C%20I%20want%20to%20join%20the%20AI4Students%20%26%20Graduates%20cohort.%20%28Ref%3A%20STUDENT%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>Reserve a seat</a></div>
+</article>
+<article class="offer coral" id="freelance" data-group="courses">
+  <div class="o-top"><span class="o-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2M3 12h18"/></svg></span><span class="o-tag">4-week cohort</span></div>
+  <h3>AI Remote Work &amp; Freelancing Launchpad</h3>
+  <p class="o-line">Build the skills and profile to win remote AI work: portfolio projects, Upwork and LinkedIn profiles, pitching and pricing.</p>
+  <p class="o-price"><b>₦35,000</b><span>4 weeks · early bird ₦30,000</span></p>
+  <details><summary>See prices and options</summary><ul class="tiers"><li><span>4-week Launchpad</span><b>₦35,000</b></li><li><span>Early bird (first 20 seats)</span><b>₦30,000</b></li><li><span>Combo with AI4Students &amp; Graduates</span><b>₦50,000</b></li></ul><p class="o-who"><b>Best for:</b> Graduates, career switchers and freelancers who want remote AI income</p></details>
+  <div class="o-cta"><a class="btn wa" href="https://wa.me/2349039404716?text=Hi%20Princewill%2C%20tell%20me%20about%20the%20AI%20Remote%20Work%20%26%20Freelancing%20Launchpad.%20%28Ref%3A%20REMOTE%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>Join the Launchpad</a></div>
+</article>
+<article class="offer green" id="robotics" data-group="courses">
+  <div class="o-top"><span class="o-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="8" width="12" height="10" rx="2.5"/><path d="M12 8V4.5"/><circle cx="12" cy="3.6" r="1"/><circle cx="9.5" cy="13" r=".7"/><circle cx="14.5" cy="13" r=".7"/><path d="M6 13H3.5M18 13h2.5"/></svg></span><span class="o-tag">Kids, teens and adults</span></div>
+  <h3>Robotics &amp; Coding Upskilling</h3>
+  <p class="o-line">Hands-on robotics, coding and IoT with Arduino, ESP32 and Python, from first robot to real projects.</p>
+  <p class="o-price"><b>₦40,000/month</b><span>kids and teens · 4 weekend classes</span></p>
+  <details><summary>See prices and options</summary><ul class="tiers"><li><span>Kids and teens (8–17): 4 weekend classes</span><b>₦40,000/month</b></li><li><span>2-week holiday bootcamp</span><b>₦60,000</b></li><li><span>Adults: Arduino and IoT, 4 weeks</span><b>₦50,000</b></li><li><span>School robotics club (per term)</span><b>Custom quote</b></li></ul><p class="o-who"><b>Best for:</b> Parents, students, teachers and schools</p></details>
+  <div class="o-cta"><a class="btn wa" href="https://wa.me/2349039404716?text=Hi%20Princewill%2C%20I%27m%20interested%20in%20Robotics%20%26%20Coding%20classes.%20%28Ref%3A%20ROBOT%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>Ask about the next class</a></div>
+</article>
+<article class="offer blue" id="training" data-group="schools">
+  <div class="o-top"><span class="o-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 12l3-3 3 2 4-4"/></svg></span><span class="o-tag">For organisations</span></div>
+  <h3>Team &amp; Custom Training</h3>
+  <p class="o-line">AI productivity, automation, data and robotics training built around your team&#x27;s real work.</p>
+  <p class="o-price"><b>From ₦250,000/day</b><span>up to 25 people · virtual or in person</span></p>
+  <details><summary>See prices and options</summary><ul class="tiers"><li><span>1-day team workshop (up to 25 people)</span><b>from ₦250,000</b></li><li><span>Multi-day or recurring programmes</span><b>Custom quote</b></li></ul><p class="o-who"><b>Best for:</b> Companies, NGOs, churches, academies and teams</p></details>
+  <div class="o-cta"><a class="btn wa" href="https://wa.me/2349039404716?text=Hi%20Princewill%2C%20we%27d%20like%20a%20custom%20AI%20training%20for%20our%20team.%20%28Ref%3A%20TEAM%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>Request a proposal</a></div>
+</article>
+<article class="offer coral" id="books" data-group="community">
+  <div class="o-top"><span class="o-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5c3-1 6-1 8 1 2-2 5-2 8-1v14c-3-1-6-1-8 1-2-2-5-2-8-1z"/><path d="M12 6v14"/></svg></span><span class="o-tag">Books</span></div>
+  <h3>AI Automation &amp; Project Build Books</h3>
+  <p class="o-line">Step-by-step guides to AI automation and how real projects are built, from idea to working system.</p>
+  <p class="o-price"><b>₦5,000 each</b><span>any 3 for ₦12,000 · all-books bundle ₦20,000</span></p>
+  <details><summary>See prices and options</summary><ul class="tiers"><li><span>Any single book</span><b>₦5,000</b></li><li><span>Any 3 books</span><b>₦12,000</b></li><li><span>All-books bundle</span><b>₦20,000</b></li></ul><p class="o-who"><b>Best for:</b> Anyone who learns best by reading and building along</p></details>
+  <div class="o-cta"><a class="btn wa" href="https://wa.me/2349039404716?text=Hi%20Princewill%2C%20I%20want%20to%20buy%20your%20AI%20books.%20%28Ref%3A%20BOOKS%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>Get the books</a></div>
+</article>
+    </div>
+    <div class="how">
+      <div><span>Step 1</span><b>Pick an offer</b><p>Tap the green button on the one you want. WhatsApp opens with a message ready to send.</p></div>
+      <div><span>Step 2</span><b>Chat with me</b><p>I confirm the date, answer questions and send payment details.</p></div>
+      <div><span>Step 3</span><b>Learn and build</b><p>Join live on Google Meet or in person in Lagos, and leave with something working.</p></div>
+    </div>
+    <div class="faq">
+      <h2>Questions</h2>
+      <details><summary>How do I pay?</summary><p>By bank transfer once we've confirmed your booking on WhatsApp. Books can also be bought instantly online.</p></details>
+      <details><summary>Are the sessions online?</summary><p>Yes. All sessions run live on Google Meet. School and team trainings can also be held in person in Lagos.</p></details>
+      <details><summary>I'm a complete beginner. Is that okay?</summary><p>Yes. Every course starts from the basics, and the 1-on-1 sessions are shaped around what you already know.</p></details>
+      <details><summary>Do you guarantee jobs or income?</summary><p>No. The Freelancing Launchpad teaches the skills, portfolio and pitching that remote clients look for, and shares opportunities as they come up, but results depend on your effort.</p></details>
+      <details><summary>Can you train a whole school or company?</summary><p>Yes. AI4Educators and Team Training are built for groups. Send a WhatsApp message with your team size and I'll send a proposal.</p></details>
+    </div>
+  </div></section>
+</main>
+<footer><div class="wrap"><span>© <span id="yr">2026</span> Ogbu Princewill</span><a href="../">Back to portfolio ↑</a></div></footer>
+<script>
+document.querySelectorAll('.filter .chip').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var g = b.getAttribute('data-g');
+    document.querySelectorAll('.filter .chip').forEach(function (c) { c.setAttribute('aria-pressed', c === b); });
+    document.querySelectorAll('.offer').forEach(function (o) { o.hidden = g !== 'all' && o.getAttribute('data-group') !== g; });
+  });
+});
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body></html>
